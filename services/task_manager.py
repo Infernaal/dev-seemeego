@@ -39,11 +39,3 @@ def enqueue_task(func: Callable[..., Any], *args: Any) -> None:
         logger.debug(f"✅ Enqueued task: {getattr(func, '__name__', str(func))} with args: {args}")
     except queue.Full:
         logger.warning("⚠️ Task queue is full (limit: 10). Dropping task.")
-
-def _monitor_queue_loop():
-    while True:
-        _task_queue.join()
-        logger.info("✅ All video tasks processed. Waiting 30 minutes before next cycle...")
-
-monitor_thread = threading.Thread(target=_monitor_queue_loop, daemon=True)
-monitor_thread.start()

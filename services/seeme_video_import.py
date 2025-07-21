@@ -19,7 +19,7 @@ def _fetch_services() -> dict[str, int]:
     if API_TOKEN:
         headers["Authorization"] = f"Bearer {API_TOKEN}"
     try:
-        resp = requests.get(url, headers=headers)
+        resp = requests.get(url, headers=headers, verify=False)
         resp.raise_for_status()
         data = resp.json().get("data", [])
         return {svc["name"]: svc["id"] for svc in data}
@@ -54,7 +54,7 @@ def import_video(cover: str, link: str, ai_service_id: int) -> dict:
     payload = {"cover": cover, "link": link, "ai_service_id": ai_service_id}
     print(payload)
     try:
-        resp = requests.post(url, json=payload, headers=headers)
+        resp = requests.post(url, json=payload, headers=headers, verify=False)
         resp.raise_for_status()
         return resp.json()
     except requests.RequestException as e:
