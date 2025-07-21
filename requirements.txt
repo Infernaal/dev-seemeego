@@ -1,0 +1,6 @@
+opencv-python-headless
+requests
+asyncio
+lumaai
+python-dotenv
+openai
