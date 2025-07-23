@@ -36,7 +36,8 @@ def generate_video_with_veo3(
         "prompt": prompt,
         "enableTranslation": True,
         "imageUrls": [image_url] if image_url else [],
-        "model": "veo3_fast"
+        "model": "veo3_fast",
+        "aspectRatio": aspect_ratio
     }
 
     try:

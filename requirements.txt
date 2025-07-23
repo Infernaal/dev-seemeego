@@ -4,3 +4,4 @@ asyncio
 lumaai
 python-dotenv
 openai
+cachetools

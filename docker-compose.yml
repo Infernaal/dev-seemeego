@@ -2,10 +2,11 @@ version: "3.8"
 
 services:
   seemeego-worker:
+    image: seemeego-ai
     build: /home/admin/web/dev-ai.dubadu.com/public_html/seemeego-ai
     container_name: seemeego-ai
     restart: always
     environment:
       - PYTHONUNBUFFERED=1
     volumes:
-      - ./temp-seemeego:/seemeego-ai/temp-seemeego
+      - /home/admin/web/dev-ai.dubadu.com/public_html/seemeego-ai/temp-seemeego:/seemeego-ai/temp-seemeego
