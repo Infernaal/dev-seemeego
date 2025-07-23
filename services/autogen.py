@@ -31,7 +31,7 @@ def process_text_to_video_generation(current_try=0):
     try:
         description = generate_text_to_video()
         name, generator_func = choose_video_generator(for_image=False)
-        aspect_ratio = "16:9" if name == "Veo3 AI" else "9:16"
+        aspect_ratio = "9:16"
         video_url = generator_func(description, aspect_ratio=aspect_ratio)
 
         if not video_url:
